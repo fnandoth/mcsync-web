@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { Image } from 'astro:assets';
 ---
 
 <BaseLayout title="MCSync · Landing">
@@ -134,11 +133,15 @@ import { Image } from 'astro:assets';
             />
             [screenshot: dashboard principal]
           </div> -->
-          <img
-            class="shot"
-            src="/screenshots/dashboard.png"
-            alt="Dashboard principal de MCSync mostrando el estado del servidor y los botones de acción"
-          />
+          <div class="shot">
+            <img
+              class="shot-image"
+              src="/screenshots/dashboard.png"
+              alt="Dashboard principal de MCSync mostrando el estado del servidor y los botones de acción"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <p class="shot-note">
             Dashboard principal con estado del servidor y botones de acción
           </p>
@@ -151,11 +154,15 @@ import { Image } from 'astro:assets';
               />
             [screenshot: panel de configuración]
           </div> -->
-          <img
-            class="shot"
-            src="/screenshots/config.png"
-            alt="Panel de configuración de MCSync con campos para GitHub Owner, Repo, Branch, Token, Server Jar path y Playit.gg URL"
-          />
+          <div class="shot">
+            <img
+              class="shot-image"
+              src="/screenshots/config.png"
+              alt="Panel de configuración de MCSync con campos para GitHub Owner, Repo, Branch, Token, Server Jar path y Playit.gg URL"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <p class="shot-note">
             Los campos de configuración: GitHub Owner, Repo, Branch, Token,
             Server Jar path y Playit.gg URL
@@ -169,11 +176,15 @@ import { Image } from 'astro:assets';
               />
             [screenshot: estado de sincronización]
           </div> -->
-          <img
-            class="shot"
-            src="/screenshots/dashboardSync.png"
-            alt="Dashboard de MCSync mostrando el proceso de sincronización en curso, con mensajes de estado y barra de progreso"
-          />
+          <div class="shot">
+            <img
+              class="shot-image"
+              src="/screenshots/dashboardSync.png"
+              alt="Dashboard de MCSync mostrando el proceso de sincronización en curso, con mensajes de estado y barra de progreso"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <p class="shot-note">
             Dashboard mostrando el proceso de sincronización en curso, con mensajes de estado
           </p>
@@ -302,11 +313,15 @@ import { Image } from 'astro:assets';
               />
           [screenshot: ventana de configuración con los campos completados]
         </div> -->
-        <img
-          class="shot"
-          src="/screenshots/configCompleted.png"
-          alt="Ventana de configuración de MCSync con todos los campos completados correctamente"
-        />
+        <div class="shot">
+          <img
+            class="shot-image"
+            src="/screenshots/configCompleted.png"
+            alt="Ventana de configuración de MCSync con todos los campos completados correctamente"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
 
         <p class="meta">
           Si pierdes el token de GitHub, puedes generar uno nuevo. El mundo no

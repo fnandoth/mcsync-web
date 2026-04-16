@@ -226,13 +226,13 @@ main section {
   max-width: 800px;
   border: 1px solid #333333;
   background: #0a0a0a;
-  aspect-ratio: 16 / 9;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 20px;
-  color: #444444;
-  font-family: var(--font-mono);
+  overflow: hidden;
+}
+
+.shot-image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .shot-note {
