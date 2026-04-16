@@ -1,17 +1,385 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from 'astro:assets';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="MCSync · Landing">
+  <header class="site-header">
+    <div class="shell site-nav">
+      <div class="brand">MCSync</div>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#el-problema">El problema</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#la-app">La app</a>
+        <a href="#requisitos">Requisitos</a>
+        <a href="#configurar">Configurar</a>
+        <a href="#ser-host">Ser host</a>
+        <a href="#descargar">Descargar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero">
+      <div class="shell">
+        <h1 class="display">MCSync</h1>
+        <p class="section-subtitle">
+          El servidor de Minecraft siempre disponible. Sin importar quién
+          hostea.
+        </p>
+        <p class="lead">
+          MCSync es una app de escritorio para Windows que automatiza la
+          rotación del host en servidores Minecraft entre amigos. Con un clic,
+          comprime el mundo, lo sube a GitHub, lo descarga, descomprime y lanza
+          el servidor.
+        </p>
+        <div class="cta-row">
+          <a
+            class="btn btn-primary"
+            href="https://github.com/fnandoth/MCSync/releases/latest"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Descargar</a
+          >
+          <a
+            class="btn btn-secondary"
+            href="https://github.com/fnandoth/MCSync"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Ver en GitHub</a
+          >
+        </div>
+        <p class="meta">Windows · .NET 8 · Open Source · v0.2.0</p>
+      </div>
+    </section>
+
+    <section id="el-problema">
+      <div class="shell">
+        <h2 class="section-title">El problema</h2>
+        <p class="lead">
+          Cuando el amigo que hostea se desconecta, todos pierden acceso al
+          mundo. El flujo manual de comprimir ZIP, enviar, descomprimir y volver
+          a configurar el servidor es lento; MCSync lo automatiza de punta a
+          punta.
+        </p>
+        <div class="split">
+          <article class="panel">
+            <h3>Sin MCSync</h3>
+            <ul class="mono-list">
+              <li>— Detener servidor y buscar la carpeta del mundo</li>
+              <li>— Comprimir todo en un ZIP</li>
+              <li>— Enviar archivo manualmente</li>
+              <li>— Descargar y descomprimir en otra PC</li>
+              <li>— Reconfigurar server.jar y túnel</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>Con MCSync</h3>
+            <ul class="mono-list">
+              <li>✓ Presionar <code>STOP HOST AND SYNC</code></li>
+              <li>✓ Presionar <code>START HOST</code> en la otra PC</li>
+              <li>✓ Seguir jugando en el mismo mundo</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona">
+      <div class="shell">
+        <h2 class="section-title">Cómo funciona</h2>
+        <div class="stepper">
+          <article class="step-group">
+            <h3>Al dejar de hostear:</h3>
+            <ol class="steps">
+              <li data-step="1">Presionas <code>STOP HOST AND SYNC</code></li>
+              <li data-step="2">El servidor se detiene limpiamente</li>
+              <li data-step="3">
+                El mundo se comprime y sube a tu repo privado de GitHub
+              </li>
+              <li data-step="4">Se libera el turno</li>
+            </ol>
+          </article>
+          <article class="step-group">
+            <h3>Al querer hostear:</h3>
+            <ol class="steps">
+              <li data-step="1">Presionas <code>START HOST</code></li>
+              <li data-step="2">
+                MCSync descarga el mundo más reciente desde GitHub
+              </li>
+              <li data-step="3">Lo descomprime y prepara el servidor</li>
+              <li data-step="4">
+                Inicia <code>server.jar</code> y el túnel de <code>playit.gg</code>
+              </li>
+              <li data-step="5">
+                Obtienes el link para compartir con tus amigos
+              </li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="la-app">
+      <div class="shell">
+        <h2 class="section-title">La app</h2>
+        <p class="section-subtitle">Interfaz directa. Sin distracciones.</p>
+        <div class="shots">
+          <!-- <div class="shot" data-src="/screenshots/dashboard.png">
+            <Image
+              src="/screenshots/dashboard.png"
+              alt="Dashboard principal de MCSync mostrando el estado del servidor y los botones de acción"
+              width={750}
+              height={450}
+            />
+            [screenshot: dashboard principal]
+          </div> -->
+          <img
+            class="shot"
+            src="/screenshots/dashboard.png"
+            alt="Dashboard principal de MCSync mostrando el estado del servidor y los botones de acción"
+          />
+          <p class="shot-note">
+            Dashboard principal con estado del servidor y botones de acción
+          </p>
+          <!-- <div class="shot" data-src="/screenshots/config.png">
+              <Image
+                src="/screenshots/config.png"
+                alt="Panel de configuración de MCSync con campos para GitHub Owner, Repo, Branch, Token, Server Jar path y Playit.gg URL"
+                width={750}
+                height={500}
+              />
+            [screenshot: panel de configuración]
+          </div> -->
+          <img
+            class="shot"
+            src="/screenshots/config.png"
+            alt="Panel de configuración de MCSync con campos para GitHub Owner, Repo, Branch, Token, Server Jar path y Playit.gg URL"
+          />
+          <p class="shot-note">
+            Los campos de configuración: GitHub Owner, Repo, Branch, Token,
+            Server Jar path y Playit.gg URL
+          </p>
+          <!-- <div class="shot" data-src="/screenshots/dashboardSync.png">
+              <Image
+                src="/screenshots/dashboardSync.png"
+                alt="Dashboard de MCSync mostrando el proceso de sincronización en curso, con mensajes de estado y barra de progreso"
+                width={750}
+                height={505}
+              />
+            [screenshot: estado de sincronización]
+          </div> -->
+          <img
+            class="shot"
+            src="/screenshots/dashboardSync.png"
+            alt="Dashboard de MCSync mostrando el proceso de sincronización en curso, con mensajes de estado y barra de progreso"
+          />
+          <p class="shot-note">
+            Dashboard mostrando el proceso de sincronización en curso, con mensajes de estado
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="requisitos">
+      <div class="shell">
+        <h2 class="section-title">Requisitos</h2>
+        <p class="section-subtitle">Configura esto una sola vez</p>
+        <ol class="requirements">
+          <li>
+            <strong>Java 21 o superior</strong>
+            <p>
+              Debe estar instalado y agregado al PATH del sistema. Descárgalo
+              desde <a href="https://adoptium.net/" target="_blank" rel="noopener noreferrer">adoptium.net</a>
+              o el JDK oficial de
+              <a href="https://www.oracle.com/java/technologies/downloads/" target="_blank" rel="noopener noreferrer">Oracle</a>.
+            </p>
+          </li>
+          <li>
+            <strong>playit.gg</strong>
+            <p>
+              Descarga e instala el <code>.msi</code> desde
+              <a href="https://playit.gg/download/windows" target="_blank" rel="noopener noreferrer"
+                >playit.gg/download/windows</a
+              >. La primera vez que lo abras deberás crear una cuenta, confirmar
+              el agente y configurarlo para Minecraft Java Edition. Este proceso
+              toma menos de 2 minutos. Al finalizar, playit.gg te entregará un
+              link — guárdalo. Si lo pierdes, puedes recuperarlo ejecutando
+              <code>playit</code> en una terminal.
+            </p>
+          </li>
+          <li>
+            <strong>Repositorio privado en GitHub</strong>
+            <p>
+              Crea un repositorio nuevo (preferiblemente privado) en
+              <a href="https://github.com/new" target="_blank" rel="noopener noreferrer">GitHub</a>. Este repo
+              almacenará el mundo y el estado de sincronización. No necesitas
+              subir nada manualmente.
+            </p>
+          </li>
+          <li>
+            <strong>Token de GitHub (Fine-grained)</strong>
+            <p>
+              Accede a
+              <a
+                href="https://github.com/settings/personal-access-tokens"
+                target="_blank"
+                rel="noopener noreferrer"
+                >github.com/settings/personal-access-tokens</a
+              >. Al crear el token: ponle cualquier nombre, en
+              <code>Repository Access</code> selecciona
+              <code>Only select repositories</code> y elige el repo que creaste.
+              En permisos, selecciona <code>Contents</code> y cambia el acceso a
+              <code>Read and Write</code>. Genera el token y cópialo
+              inmediatamente — no podrás verlo de nuevo. Si lo pierdes en el
+              futuro, puedes generar uno nuevo sin perder el mundo.
+            </p>
+          </li>
+          <li>
+            <strong>server.jar de Minecraft</strong>
+            <p>
+              Descárgalo desde
+              <a href="https://www.minecraft.net/en-us/download/server" target="_blank" rel="noopener noreferrer"
+                >minecraft.net/en-us/download/server</a
+              >
+              para la versión más reciente. Para versiones específicas usa
+              <a href="https://mcversions.net/" target="_blank" rel="noopener noreferrer">mcversions.net</a>.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="configurar">
+      <div class="shell">
+        <h2 class="section-title">Configurar MCSync</h2>
+        <p class="section-subtitle">
+          Solo la primera vez. Los demás usuarios comparten la misma
+          configuración de GitHub.
+        </p>
+        <div class="terminal-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Campo</th>
+                <th>Ejemplo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>GitHub Owner</td>
+                <td><code>steve</code></td>
+              </tr>
+              <tr>
+                <td>GitHub Repo</td>
+                <td><code>server</code></td>
+              </tr>
+              <tr>
+                <td>GitHub Branch</td>
+                <td><code>main</code></td>
+              </tr>
+              <tr>
+                <td>GitHub Token</td>
+                <td><code>github_pat_...</code></td>
+              </tr>
+              <tr>
+                <td>Server Jar</td>
+                <td><code>C:\minecraft\server.jar</code></td>
+              </tr>
+              <tr>
+                <td>Playit.gg URL</td>
+                <td><code>el link que te entregó playit.gg</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- <div class="shot" data-src="/screenshots/configCompleted.png">
+              <Image
+                src="/screenshots/configCompleted.png"
+                alt="Ventana de configuración de MCSync con todos los campos completados correctamente"
+                width={750}
+                height={593}
+              />
+          [screenshot: ventana de configuración con los campos completados]
+        </div> -->
+        <img
+          class="shot"
+          src="/screenshots/configCompleted.png"
+          alt="Ventana de configuración de MCSync con todos los campos completados correctamente"
+        />
+
+        <p class="meta">
+          Si pierdes el token de GitHub, puedes generar uno nuevo. El mundo no
+          se pierde y no necesitas crear un nuevo repositorio.
+        </p>
+      </div>
+    </section>
+
+    <section id="ser-host">
+      <div class="shell">
+        <h2 class="section-title">¿Quieres ser host también?</h2>
+        <p class="lead">
+          Los amigos que quieran tomar el rol de host solo necesitan preparar su
+          entorno una vez. No necesitan crear un repositorio propio ni descargar
+          el mundo manualmente: MCSync lo hace automáticamente al presionar
+          <code>START HOST</code>.
+        </p>
+        <div class="host-grid">
+          <article class="host-card">
+            <div class="num">01</div>
+            <h3>Instalar Java</h3>
+            <p>Instala Java 21+ y agrégalo al PATH del sistema.</p>
+          </article>
+          <article class="host-card">
+            <div class="num">02</div>
+            <h3>Configurar playit.gg</h3>
+            <p>Completa el flujo inicial de 2 minutos para Minecraft Java Edition.</p>
+          </article>
+          <article class="host-card">
+            <div class="num">03</div>
+            <h3>Recibir datos GitHub</h3>
+            <p>Usa owner, repo, branch y token del host original.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="descargar">
+      <div class="shell">
+        <h2 class="section-title">Listo para jugar</h2>
+        <p class="section-subtitle">
+          Descarga MCSync y compártelo con tus amigos.
+        </p>
+        <div class="cta-row">
+          <a
+            class="btn btn-primary"
+            href="https://github.com/fnandoth/MCSync/releases/latest"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Descargar</a
+          >
+          <a
+            class="btn btn-secondary"
+            href="https://github.com/fnandoth/MCSync"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Ver en GitHub</a
+          >
+        </div>
+        <p class="meta">Open source · MIT License · Windows · Hecho con C# .NET 8</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <p>
+        MCSync ·
+        <a href="https://github.com/fnandoth/MCSync" target="_blank" rel="noopener noreferrer"
+          >github.com/fnandoth/MCSync</a
+        >
+        · Open Source
+      </p>
+    </div>
+  </footer>
+</BaseLayout>
