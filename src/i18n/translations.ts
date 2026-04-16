@@ -79,6 +79,7 @@ export const translations = {
     'setup.token': 'GitHub Token',
     'setup.jar': 'Server Jar',
     'setup.playitUrl': 'Playit.gg URL',
+    'setup.playitNote': 'El link que te entregó playit.gg',
     'setup.note': 'Si pierdes el token de GitHub, puedes generar uno nuevo. El mundo no se pierde y no necesitas crear un nuevo repositorio.',
 
     // Be host section
@@ -181,6 +182,7 @@ export const translations = {
     'setup.token': 'GitHub Token',
     'setup.jar': 'Server Jar',
     'setup.playitUrl': 'Playit.gg URL',
+    'setup.playitNote': 'The link provided by Playit.gg',
     'setup.note': 'If you lose your GitHub token, you can generate a new one. The world won\'t be lost and you don\'t need to create a new repository.',
 
     // Be host section
