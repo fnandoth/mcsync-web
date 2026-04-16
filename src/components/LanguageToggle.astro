@@ -1,0 +1,88 @@
+---
+---
+
+<button id="language-toggle" class="lang-toggle" aria-label="Toggle language">
+  <span id="lang-text">English</span>
+</button>
+
+<script>
+  const STORAGE_KEY = 'mcsync-language';
+  const DEFAULT_LANG = 'es';
+  
+  function getCurrentLanguage() {
+    return (localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG) as 'es' | 'en';
+  }
+
+  function setLanguage(lang: 'es' | 'en') {
+    localStorage.setItem(STORAGE_KEY, lang);
+    updatePageLanguage(lang);
+  }
+
+  async function updatePageLanguage(lang: 'es' | 'en') {
+    const { translations } = await import('../i18n/translations.ts');
+    
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+    
+    // Update all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      if (key && translations[lang]) {
+        const text = translations[lang][key as keyof typeof translations['es']];
+        if (text) el.textContent = text;
+      }
+    });
+
+    // Update toggle button text
+    const langText = document.getElementById('lang-text');
+    if (langText) {
+      langText.textContent = lang === 'es' ? 'English' : 'Español';
+    }
+
+    // Update nav aria-label
+    const nav = document.querySelector('nav[aria-label]');
+    if (nav) {
+      const ariaKey = lang === 'es' ? 'Navegación principal' : 'Main Navigation';
+      nav.setAttribute('aria-label', ariaKey);
+    }
+  }
+
+  // Initialize on page load
+  const currentLang = getCurrentLanguage();
+  if (currentLang === 'en') {
+    updatePageLanguage('en');
+  }
+
+  // Toggle on button click
+  document.getElementById('language-toggle')?.addEventListener('click', () => {
+    const current = getCurrentLanguage();
+    const newLang = current === 'es' ? 'en' : 'es';
+    setLanguage(newLang);
+  });
+</script>
+
+<style>
+  .lang-toggle {
+    background: transparent;
+    border: 1px solid var(--color-border-strong);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    transition: all 0.2s ease;
+  }
+
+  .lang-toggle:hover {
+    background: var(--color-surface);
+    border-color: var(--color-text);
+    color: var(--color-text);
+  }
+
+  .lang-toggle:active {
+    transform: scale(0.98);
+  }
+</style>
